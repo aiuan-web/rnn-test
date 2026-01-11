@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>RNN Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .question {
+            background: #1e293b;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            background: #7c3aed;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 30px;
+            background: #020617;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .wrong {
+            color: #f87171;
+        }
+        .correct {
+            color: #4ade80;
+        }
+    </style>
+</head>
+<body>
+
+<h1>RNN бойынша тест</h1>
+
+<form id="quizForm">
+
+<div class="question">
+<p>1. RNN не үшін қолданылады?</p>
+<input type="radio" name="q1" value="a"> Кескін өңдеу<br>
+<input type="radio" name="q1" value="b"> Тізбекті деректерді өңдеу<br>
+<input type="radio" name="q1" value="c"> Дерекқор құру<br>
+</div>
+
+<div class="question">
+<p>2. RNN-нің басты ерекшелігі қандай?</p>
+<input type="radio" name="q2" value="a"> Жадының болуы<br>
+<input type="radio" name="q2" value="b"> Жоғары графика<br>
+<input type="radio" name="q2" value="c"> Интернетке тәуелділік<br>
+</div>
+
+<div class="question">
+<p>3. Тізбекті деректерге қайсысы жатады?</p>
+<input type="radio" name="q3" value="a"> Мәтін<br>
+<input type="radio" name="q3" value="b"> Сурет<br>
+<input type="radio" name="q3" value="c"> Кесте<br>
+</div>
+
+<div class="question">
+<p>4. Vanilla RNN кемшілігі?</p>
+<input type="radio" name="q4" value="a"> Gradient Vanishing<br>
+<input type="radio" name="q4" value="b"> Үлкен жады<br>
+<input type="radio" name="q4" value="c"> Жылдам жұмыс<br>
+</div>
+
+<div class="question">
+<p>5. Gradient Vanishing деген не?</p>
+<input type="radio" name="q5" value="a"> Градиенттің нөлге жақындауы<br>
+<input type="radio" name="q5" value="b"> Желінің өсуі<br>
+<input type="radio" name="q5" value="c"> Деректің артуы<br>
+</div>
+
+<div class="question">
+<p>6. LSTM толық атауы?</p>
+<input type="radio" name="q6" value="a"> Long Short-Term Memory<br>
+<input type="radio" name="q6" value="b"> Large System Model<br>
+<input type="radio" name="q6" value="c"> Local State Machine<br>
+</div>
+
+<div class="question">
+<p>7. LSTM не үшін тиімді?</p>
+<input type="radio" name="q7" value="a"> Ұзақ мерзімді ақпаратты сақтау<br>
+<input type="radio" name="q7" value="b"> Дизайн жасау<br>
+<input type="radio" name="q7" value="c"> Файл архивтеу<br>
+</div>
+
+<div class="question">
+<p>8. LSTM қақпалары саны?</p>
+<input type="radio" name="q8" value="a"> 3<br>
+<input type="radio" name="q8" value="b"> 1<br>
+<input type="radio" name="q8" value="c"> 5<br>
+</div>
+
+<div class="question">
+<p>9. GRU деген не?</p>
+<input type="radio" name="q9" value="a"> RNN түрі<br>
+<input type="radio" name="q9" value="b"> Дерекқор<br>
+<input type="radio" name="q9" value="c"> Процессор<br>
+</div>
+
+<div class="question">
+<p>10. GRU артықшылығы?</p>
+<input type="radio" name="q10" value="a"> Жылдам және қарапайым<br>
+<input type="radio" name="q10" value="b"> Көп қақпалы<br>
+<input type="radio" name="q10" value="c"> Үлкен көлемді<br>
+</div>
+
+<div class="question">
+<p>11. RNN қай салада қолданылады?</p>
+<input type="radio" name="q11" value="a"> Сөйлеуді тану<br>
+<input type="radio" name="q11" value="b"> Құрылыс<br>
+<input type="radio" name="q11" value="c"> Геология<br>
+</div>
+
+<div class="question">
+<p>12. RNN қандай деректерге тиімді?</p>
+<input type="radio" name="q12" value="a"> Уақытқа тәуелді<br>
+<input type="radio" name="q12" value="b"> Статикалық<br>
+<input type="radio" name="q12" value="c"> Кездейсоқ<br>
+</div>
+
+<div class="question">
+<p>13. Feedforward желінің кемшілігі?</p>
+<input type="radio" name="q13" value="a"> Жады жоқ<br>
+<input type="radio" name="q13" value="b"> Баяу<br>
+<input type="radio" name="q13" value="c"> Үлкен<br>
+</div>
+
+<div class="question">
+<p>14. RNN-нің кемшілігі?</p>
+<input type="radio" name="q14" value="a"> Ұзақ тізбекте қиындық<br>
+<input type="radio" name="q14" value="b"> Сурет салмайды<br>
+<input type="radio" name="q14" value="c"> Интернет керек<br>
+</div>
+
+<div class="question">
+<p>15. Қайсысы RNN түрі?</p>
+<input type="radio" name="q15" value="a"> LSTM<br>
+<input type="radio" name="q15" value="b"> CNN<br>
+<input type="radio" name="q15" value="c"> SQL<br>
+</div>
+
+<button type="button" onclick="check()">Тапсыру</button>
+</form>
+
+<div id="result" class="result"></div>
+
+<script>
+const answers = {
+ q1:"b", q2:"a", q3:"a", q4:"a", q5:"a",
+ q6:"a", q7:"a", q8:"a", q9:"a", q10:"a",
+ q11:"a", q12:"a", q13:"a", q14:"a", q15:"a"
+};
+
+function check() {
+ let score = 0;
+ let text = "";
+ for (let i = 1; i <= 15; i++) {
+   const q = document.querySelector(`input[name="q${i}"]:checked`);
+   if (q && q.value === answers["q"+i]) {
+     score++;
+   } else {
+     text += `<p class="wrong">❌ ${i}-сұрақ қате. Дұрыс жауап: <span class="correct">${answers["q"+i]}</span></p>`;
+   }
+ }
+ document.getElementById("result").innerHTML =
+ `<h2>Нәтиже: ${score} / 15</h2>` + text;
+}
+</script>
+
+</body>
+</html>
